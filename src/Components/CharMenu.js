@@ -6,17 +6,19 @@ function CharMenu(props) {
     const {display, xpos, ypos} = props;
 const Menu = styled.ul`
     position : absolute;
-    display : ${display};
-    left : ${ypos};
-    top : ${xpos};
+    display : ${display ? 'flex' : 'hidden'};
+    left : ${xpos}px;
+    top : ${ypos}px;
     list-style : none ; 
-    display: flex;
     flex-direction : column;
-    height : 1vh;
-    width : 0.5vw;
+    height : 20vh;
+    width : 3vw;
     border : 1px black solid;
+    background-color : red;
 
 `
+
+
     return (
         <Menu>
             <li>

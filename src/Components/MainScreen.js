@@ -4,7 +4,7 @@ import backGround from '../assets/backGround1.jpg'
 import CharMenu from './CharMenu';
 
 function MainScreen() {
-    const [mousePosition, setmMousePosition] = useState({});
+    const [charCoordinate, setCharCoordinate] = useState({});
 
 
 
@@ -25,7 +25,7 @@ function MainScreen() {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
         
-        setmMousePosition({x,y});
+    setCharCoordinate({x,y});
         
     }
 

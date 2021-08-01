@@ -5,7 +5,7 @@ import CharMenu from './CharMenu';
 
 function MainScreen() {
     const [charCoordinate, setCharCoordinate] = useState({});
-
+    const [cursorCoordinate, setcursorCoordinate] = useState({})
 
 
     const Screen = styled.div`

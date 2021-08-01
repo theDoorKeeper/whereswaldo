@@ -6,9 +6,21 @@ background-image : url(${backGround});
 height : 8422px;
 cursor : crosshair;
 `
+const getCoordinates = (e)=>{
+
+const target = e.target;
+
+
+const rect = target.getBoundingClientRect();
+
+
+const x = e.clientX - rect.left;
+const y = e.clientY - rect.top;
+console.log(x,y)
+}
 function MainScreen() {
     return (
-        <Screen >           
+        <Screen onClick={getCoordinates}>           
         </Screen>
     )
 }

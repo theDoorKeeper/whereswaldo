@@ -29,10 +29,21 @@ function MainScreen() {
         
     }
 
+    const getCursor = (e)=>{
+
+        const x = e.clientX;
+        const y = e.clientY;
+
+        setcursorCoordinate(x,y)
+
+    }
+
+
 
 
     const handleClick = (e) =>{
         getCoordinates(e);
+        getCursor(e)
     }
     return (
         <Screen onClick={handleClick}> 

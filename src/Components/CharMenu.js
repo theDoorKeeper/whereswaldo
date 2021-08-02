@@ -1,26 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
 
-
-function CharMenu(props) {
-    const {display, xpos, ypos} = props;
 const Menu = styled.ul`
     position : absolute;
-    display : ${display ? 'flex' : 'hidden'};
-    left : ${xpos}px;
-    top : ${ypos}px;
+    display : ${ props => props.display ? 'flex' : 'hidden'};
+    left : ${props => props.xpos}px;
+    top : ${props => props.ypos}px;
     list-style : none ; 
     flex-direction : column;
-    height : 20vh;
-    width : 3vw;
-    border : 1px black solid;
-    background-color : red;
+    justify-content : space-around;
+    height :200px;
+    width : 100px;
+    border : 1px #d9534f solid;
+    gap : 2px;
+    background-color : #292b2c;
+    cursor : pointer;
 
 `
+function CharMenu(props) {
+    const {display, xpos, ypos} = props;
+
 
 
     return (
-        <Menu>
+        <Menu display={display} xpos={xpos} ypos={ypos} >
             <li>
                char1 
             </li>

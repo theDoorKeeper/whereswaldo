@@ -9,7 +9,7 @@ import CharMenu from './CharMenu';
     height : 8422px;
     width : 100vw;
     cursor : crosshair;
-     position : relative; 
+    position : relative; 
     `
 
 
@@ -37,14 +37,19 @@ function MainScreen() {
         const y = e.pageY ;
 
         setcursorCoordinate({x,y})
-
     }
-
 
     const handleClick = (e) =>{
         getCoordinates(e);
-        getCursor(e)
+        getCursor(e);
     }
+
+    const handleMenuCLick = (e)=>{
+        e.stopPropagation();
+        console.log(e.target.value)
+
+    }
+
     return (
         <Screen onClick={handleClick}> 
         <CharMenu xpos={cursorCoordinate.x} ypos={cursorCoordinate.y}  />          

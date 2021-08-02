@@ -1,6 +1,20 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
+
+
+const rotateY = keyframes`
+     0% {
+        transform: rotateY(90deg)
+    }
+    80% {
+        transform: rotateY(-10deg)
+    }
+    100% {
+        transform: rotateY(0)
+    }
+
+`
 
 const Menu = styled.ul.attrs(props => ({
     style: {
@@ -17,6 +31,9 @@ const Menu = styled.ul.attrs(props => ({
   cursor : pointer;
   padding : 0;
   border : 1px tomato solid;
+
+  animation-name: ${rotateY};
+ animation-duration: 1s;
   
   `
 
@@ -30,6 +47,7 @@ const MenuItem = styled.li`
     display : flex ; 
     align-items : center ;
     justify-content : center ;
+    color : lightgrey ;
 
     &:hover {
         color : tomato;

@@ -42,17 +42,20 @@ function MainScreen() {
     const handleClick = (e) =>{
         getCoordinates(e);
         getCursor(e);
+        setMenuDisplay(true);
+        
     }
 
     const handleMenuCLick = (e)=>{
         e.stopPropagation();
+        setMenuDisplay(prevState => prevState ? false : true  )
         console.log(e.target.textContent)
 
     }
 
     return (
         <Screen onClick={handleClick}> 
-        <CharMenu xpos={cursorCoordinate.x} ypos={cursorCoordinate.y}  handleClick={handleMenuCLick}/>          
+        <CharMenu xpos={cursorCoordinate.x} ypos={cursorCoordinate.y}  handleClick={handleMenuCLick} displayMenu={menuDisplay}/>          
         </Screen>
     )
 }

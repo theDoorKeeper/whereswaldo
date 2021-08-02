@@ -18,21 +18,21 @@ const Menu = styled.ul`
 
 `
 function CharMenu(props) {
-    const {display, xpos, ypos} = props;
+    const {display, xpos, ypos, handleClick} = props;
 
 
 
     return (
-        <Menu display={display} xpos={xpos} ypos={ypos} >
-            <li>
+        <Menu display={display} xpos={xpos} ypos={ypos}>
+            <li onClick={handleClick}>
                char1 
             </li>
 
-            <li>
+            <li onClick={handleClick}>
                 char2
-            </li>
+            </li >
 
-            <li>
+            <li onClick={handleClick}>
                 char3
             </li>                    
         </Menu>

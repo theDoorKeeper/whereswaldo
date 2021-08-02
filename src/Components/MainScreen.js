@@ -46,13 +46,13 @@ function MainScreen() {
 
     const handleMenuCLick = (e)=>{
         e.stopPropagation();
-        console.log(e.target.value)
+        console.log(e.target.textContent)
 
     }
 
     return (
         <Screen onClick={handleClick}> 
-        <CharMenu xpos={cursorCoordinate.x} ypos={cursorCoordinate.y}  />          
+        <CharMenu xpos={cursorCoordinate.x} ypos={cursorCoordinate.y}  handleClick={handleMenuCLick}/>          
         </Screen>
     )
 }

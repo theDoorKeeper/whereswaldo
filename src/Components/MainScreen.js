@@ -3,18 +3,20 @@ import styled from 'styled-components';
 import backGround from '../assets/backGround1.jpg'
 import CharMenu from './CharMenu';
 
-function MainScreen() {
-    const [charCoordinate, setCharCoordinate] = useState({});
-    const [cursorCoordinate, setcursorCoordinate] = useState({})
 
-
-    const Screen = styled.div`
+  const Screen = styled.div`
     background-image : url(${backGround});
     height : 8422px;
     width : 100vw;
     cursor : crosshair;
      position : relative; 
     `
+
+
+function MainScreen() {
+    const [charCoordinate, setCharCoordinate] = useState({});
+    const [cursorCoordinate, setcursorCoordinate] = useState({})
+
 
     const getCoordinates = (e)=>{
 
@@ -31,14 +33,12 @@ function MainScreen() {
 
     const getCursor = (e)=>{
 
-        const x = e.clientX;
-        const y = e.clientY;
+        const x = e.pageX;
+        const y = e.pageY ;
 
-        setcursorCoordinate(x,y)
+        setcursorCoordinate({x,y})
 
     }
-
-
 
 
     const handleClick = (e) =>{
@@ -47,7 +47,7 @@ function MainScreen() {
     }
     return (
         <Screen onClick={handleClick}> 
-        <CharMenu/>          
+        <CharMenu xpos={cursorCoordinate.x} ypos={cursorCoordinate.y}  />          
         </Screen>
     )
 }

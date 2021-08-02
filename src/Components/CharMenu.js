@@ -3,38 +3,52 @@ import styled from 'styled-components'
 
 const Menu = styled.ul`
     position : absolute;
-    display : ${ props => props.display ? 'flex' : 'hidden'};
+    display : ${ props => props.displayMenu ? 'flex' : 'none'};
     left : ${props => props.xpos}px;
     top : ${props => props.ypos}px;
     list-style : none ; 
     flex-direction : column;
-    justify-content : space-around;
+    justify-content: space-between;
     height :200px;
-    width : 100px;
-    border : 1px #d9534f solid;
-    gap : 2px;
-    background-color : #292b2c;
     cursor : pointer;
+    padding : 0;
+      border : 1px tomato solid;
 
 `
+
+const MenuItem = styled.li`
+    width : 142px;
+    border-top : 1px tomato solid;
+    background-color : #292b2c ;
+    height : 66px;
+    display : flex ; 
+    align-items : center ;
+    justify-content : center ;
+
+    &:hover {
+        color : tomato;
+    }
+    
+`
+
 function CharMenu(props) {
-    const {display, xpos, ypos, handleClick} = props;
+    const {displayMenu, xpos, ypos, handleClick} = props;
 
 
 
     return (
-        <Menu display={display} xpos={xpos} ypos={ypos}>
-            <li onClick={handleClick}>
-               char1 
-            </li>
+        <Menu displayMenu={displayMenu} xpos={xpos} ypos={ypos}>
+            <MenuItem onClick={handleClick}>
+              Kai
+            </MenuItem>
 
-            <li onClick={handleClick}>
-                char2
-            </li >
+            <MenuItem onClick={handleClick}>
+             Vash
+            </MenuItem >
 
-            <li onClick={handleClick}>
-                char3
-            </li>                    
+            <MenuItem onClick={handleClick}>
+            Dio
+            </MenuItem>                    
         </Menu>
     )
 }

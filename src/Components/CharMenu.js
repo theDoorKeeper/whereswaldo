@@ -1,20 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Menu = styled.ul`
-    position : absolute;
-    display : ${ props => props.displayMenu ? 'flex' : 'none'};
-    left : ${props => props.xpos}px;
-    top : ${props => props.ypos}px;
-    list-style : none ; 
-    flex-direction : column;
-    justify-content: space-between;
-    height :200px;
-    cursor : pointer;
-    padding : 0;
-      border : 1px tomato solid;
 
-`
+const Menu = styled.ul.attrs(props => ({
+    style: {
+        display : props.displayMenu ? 'flex' : 'none',
+        left :  props.xpos,
+        top :  props.ypos,
+    },
+  }))`
+  position : absolute;
+  list-style : none ; 
+  flex-direction : column;
+  justify-content: space-between;
+  height :200px;
+  cursor : pointer;
+  padding : 0;
+  border : 1px tomato solid;
+  
+  `
+
+
 
 const MenuItem = styled.li`
     width : 142px;

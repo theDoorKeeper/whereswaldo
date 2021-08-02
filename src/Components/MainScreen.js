@@ -15,8 +15,8 @@ import CharMenu from './CharMenu';
 
 function MainScreen() {
     const [charCoordinate, setCharCoordinate] = useState({});
-    const [cursorCoordinate, setcursorCoordinate] = useState({})
-
+    const [cursorCoordinate, setcursorCoordinate] = useState({});
+    const [menuDisplay, setMenuDisplay] = useState(false);
 
     const getCoordinates = (e)=>{
 

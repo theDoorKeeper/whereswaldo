@@ -8,8 +8,12 @@ import CharMenu from './CharMenu';
 
   const Screen = styled.div`
     background-image : url(${backGround});
-    height : 8422px;
-    width : 100vw;
+    margin-left : auto;
+    margin-right : auto;
+    min-height : 8422px;
+    max-height : 8422px;
+    max-width : 1908px;
+    min-width : 1908px;
     cursor : crosshair;
     position : relative; 
     `
@@ -55,8 +59,8 @@ function MainScreen() {
     }
     
     useEffect(() => {
-        
-    })
+        console.log(charCoordinate)
+    },[charCoordinate])
 
 
     const getData =  async ()  => {

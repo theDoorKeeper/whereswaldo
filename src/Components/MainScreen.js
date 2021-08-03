@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import backGround from '../assets/backGround1.jpg'
+import { db } from '../firebase';
 import CharMenu from './CharMenu';
+
 
 
   const Screen = styled.div`
@@ -17,7 +19,6 @@ function MainScreen() {
     const [charCoordinate, setCharCoordinate] = useState({});
     const [cursorCoordinate, setcursorCoordinate] = useState({});
     const [menuDisplay, setMenuDisplay] = useState(false);
-
     const getCoordinates = (e)=>{
 
     const target = e.target;
@@ -52,7 +53,18 @@ function MainScreen() {
         console.log(e.target.textContent)
 
     }
+    
+    useEffect(() => {
+        
+    })
 
+
+    const getData =  async ()  => {
+        const ref = db.collection("Chars").doc("Easy");
+        const data = await ref.get();
+        const finalData = await data.data();
+        return finalData
+    }
     return (
         <Screen onClick={handleClick}> 
         <CharMenu xpos={cursorCoordinate.x} ypos={cursorCoordinate.y}  handleClick={handleMenuCLick} displayMenu={menuDisplay}/>          

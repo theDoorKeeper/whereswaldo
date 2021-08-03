@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import MainScreen from "./Components/MainScreen";
 import Navbar from "./Components/Navbar";
 
@@ -6,16 +6,24 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin : 0;
     padding : 0;
+    background-color : black ;
   } `
+
+  const AppWrapper = styled.div`
+  display : flex;
+  flex-direction :column;
+  justify-content : center;
+  
+  `
 
 function App() {
   return (
     
-    <div className="App">
+    <AppWrapper>
       <GlobalStyle/>
       <Navbar/>
       <MainScreen/>
-    </div>
+    </AppWrapper>
     
   );
 }

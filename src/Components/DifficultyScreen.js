@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Vash from '../assets/Vash.webp'
 import En from '../assets/En.png'
 import Dio from '../assets/Dio.webp'
 
-const Overlay = styled.div`
+/* const Overlay = styled.div`
     position: fixed; 
   display: flex; 
   justify-content :center;
@@ -17,7 +17,27 @@ const Overlay = styled.div`
   background-color: rgba(0,0,0,0.8); 
   z-index: 2; 
   cursor: pointer; 
-`
+` */
+
+
+const Overlay = styled.div.attrs(props => ({
+    style: {
+        display : props.visible ? 'flex' : 'none',
+         },
+     }))`
+    position: fixed; 
+    justify-content :center;
+    width: 100%; 
+    height: 100%; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.8); 
+    z-index: 2; 
+    cursor: pointer; 
+  
+  `
 
 const DifficultyMenu = styled.div`
     height : 700px;
@@ -48,12 +68,10 @@ const Char = styled.li`
     font-size : 3rem;
      cursor : pointer ;
      color : #191818;
-     
+     border-bottom : grey 1px solid ;
     &:hover{
         color : #9b1427;
-        
     }
-
 
 
 `
@@ -84,8 +102,11 @@ const DiffcultyBtn = styled.button`
 `
 
 function DifficultyScreen() {
+    const [visible, setvisible] = useState(true);
+
+
     return (
-        <Overlay>
+        <Overlay visible={visible}>
             <DifficultyMenu>
                 <DiffcultyBtn> Easy </DiffcultyBtn>
                 <CharList>

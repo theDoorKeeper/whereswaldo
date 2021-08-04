@@ -59,7 +59,7 @@ function CharMenu(props) {
     return (
         <Menu displayMenu={displayMenu} xpos={xpos} ypos={ypos}>
             <MenuItem onClick={handleClick}>
-              Kai
+              En
             </MenuItem>
 
             <MenuItem onClick={handleClick}>

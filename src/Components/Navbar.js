@@ -1,11 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-
-function Navbar() {
     const Nav = styled.ul`
-    width : 100vw;
-    height : 2vw;
+    width : 100%;
+    height : 3%;
     background-color : black;
     color: red;
     display : flex;
@@ -17,6 +15,8 @@ function Navbar() {
     margin-bottom : 0;
     
     `
+function Navbar() {
+
     return (
             <Nav>
                 <li>

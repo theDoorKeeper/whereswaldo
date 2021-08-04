@@ -31,13 +31,10 @@ const Menu = styled.ul.attrs(props => ({
   cursor : pointer;
   padding : 0;
   border : 1px tomato solid;
-
   animation-name: ${rotateY};
- animation-duration: 1s;
-  
+  animation-duration: 1s;
+
   `
-
-
 
 const MenuItem = styled.li`
     width : 142px;
@@ -48,7 +45,6 @@ const MenuItem = styled.li`
     align-items : center ;
     justify-content : center ;
     color : lightgrey ;
-
     &:hover {
         color : tomato;
     }

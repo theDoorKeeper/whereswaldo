@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import DifficultyScreen from "./Components/DifficultyScreen";
 import MainScreen from "./Components/MainScreen";
@@ -20,11 +21,13 @@ const GlobalStyle = createGlobalStyle`
   `
 
 function App() {
+  const [charsArray, setCharsArray] = useState([]) ;
+
   return (
-    
     <AppWrapper>
       <GlobalStyle/>
-      <DifficultyScreen/>
+      <DifficultyScreen
+      setCharsArray={setCharsArray}/>
       <Navbar/>
       <MainScreen/>
     </AppWrapper>

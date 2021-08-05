@@ -56,19 +56,34 @@ function CharMenu(props) {
     const [foundChars, setFoundChars] = useState([]) ;
 
     const checkForCoordinates = (xPos, yPos, maxX, maxY, minX, minY)=>{
-        if ( (xPos >= minX || xPos <= maxX) || (yPos >= minY || yPos <= maxY) ){
+        if ( (xPos >= minX && xPos <= maxX) && (yPos >= minY && yPos <= maxY) ){
             return true 
         }
         else return false 
     }
 
+    const checkChar = (name) => {
+        const tempArray  = Object.entries(dbChars);     
+
+        tempArray.forEach(instance=>{
+            const char = instance[1];
+            const charName = char.name;
+
+            if(checkForCoordinates(xpos, ypos, char.maxX, char.maxY, char.minX, char.minY ) && (charName === name)){
+                if( !foundChars.includes(charName) ){
+               setFoundChars( thisArray => [...thisArray , charName] )
+                }
+
+            }
+        })
+
+
+    }
+
     const handleClick = (e) =>{
         e.stopPropagation();
         setMenuDisplay(false);
-        const tempArray  = Object.entries(dbChars);
-        tempArray.forEach(char=>{
-            console.log(char)
-        })
+        checkChar(e.target.textContent);
     }
 
     return (

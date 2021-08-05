@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 
 
@@ -52,13 +52,24 @@ const MenuItem = styled.li`
 `
 
 function CharMenu(props) {
-    const {displayMenu, xpos, ypos, setMenuDisplay} = props;
+    const {displayMenu, xpos, ypos, setMenuDisplay, dbChars} = props;
+    const [foundChars, setFoundChars] = useState([]) ;
+
+    const checkForCoordinates = (xPos, yPos, maxX, maxY, minX, minY)=>{
+        if ( (xPos >= minX || xPos <= maxX) || (yPos >= minY || yPos <= maxY) ){
+            return true 
+        }
+        else return false 
+    }
 
     const handleClick = (e) =>{
         e.stopPropagation();
         setMenuDisplay(false);
+        const tempArray  = Object.entries(dbChars);
+        tempArray.forEach(char=>{
+            console.log(char)
+        })
     }
-
 
     return (
         <Menu displayMenu={displayMenu} xpos={xpos} ypos={ypos}>

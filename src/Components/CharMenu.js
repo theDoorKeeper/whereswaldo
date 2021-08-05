@@ -52,8 +52,12 @@ const MenuItem = styled.li`
 `
 
 function CharMenu(props) {
-    const {displayMenu, xpos, ypos, handleClick} = props;
+    const {displayMenu, xpos, ypos, setMenuDisplay} = props;
 
+    const handleClick = (e) =>{
+        e.stopPropagation();
+        setMenuDisplay(false);
+    }
 
 
     return (

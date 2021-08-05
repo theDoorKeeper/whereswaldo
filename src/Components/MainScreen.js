@@ -23,6 +23,8 @@ function MainScreen(props) {
     const [charCoordinate, setCharCoordinate] = useState({});
     const [cursorCoordinate, setcursorCoordinate] = useState({});
     const [menuDisplay, setMenuDisplay] = useState(false);
+
+
     const getCoordinates = (e)=>{
 
     const target = e.target;
@@ -48,18 +50,12 @@ function MainScreen(props) {
         getCoordinates(e);
         getCursor(e);
         setMenuDisplay(true);
-        
-    }
-
-    const handleMenuCLick = (e)=>{
-        e.stopPropagation();
-        setMenuDisplay(prevState => prevState ? false : true  )
     }
 
 
     return (
         <Screen onClick={handleClick}> 
-        <CharMenu xpos={cursorCoordinate.x} ypos={cursorCoordinate.y}  handleClick={handleMenuCLick} displayMenu={menuDisplay}/>          
+        <CharMenu dbChars={dbChars} xpos={cursorCoordinate.x} ypos={cursorCoordinate.y}  setMenuDisplay={setMenuDisplay} displayMenu={menuDisplay}/>          
         </Screen>
     )
 }

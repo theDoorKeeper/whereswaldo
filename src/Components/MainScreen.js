@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import backGround from '../assets/backGround1.jpg'
-import { db } from '../firebase';
 import CharMenu from './CharMenu';
 
 
@@ -19,7 +18,8 @@ import CharMenu from './CharMenu';
     `
 
 
-function MainScreen() {
+function MainScreen(props) {
+    const {dbChars} = props;
     const [charCoordinate, setCharCoordinate] = useState({});
     const [cursorCoordinate, setcursorCoordinate] = useState({});
     const [menuDisplay, setMenuDisplay] = useState(false);
@@ -54,21 +54,9 @@ function MainScreen() {
     const handleMenuCLick = (e)=>{
         e.stopPropagation();
         setMenuDisplay(prevState => prevState ? false : true  )
-        console.log(e.target.textContent)
-
     }
-    
-    useEffect(() => {
-        console.log(charCoordinate)
-    },[charCoordinate])
 
 
-    const getData =  async ()  => {
-        const ref = db.collection("Chars").doc("Easy");
-        const data = await ref.get();
-        const finalData = await data.data();
-        return finalData
-    }
     return (
         <Screen onClick={handleClick}> 
         <CharMenu xpos={cursorCoordinate.x} ypos={cursorCoordinate.y}  handleClick={handleMenuCLick} displayMenu={menuDisplay}/>          

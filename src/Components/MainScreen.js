@@ -55,7 +55,7 @@ function MainScreen(props) {
 
     return (
         <Screen onClick={handleClick}> 
-        <CharMenu dbChars={dbChars} xpos={cursorCoordinate.x} ypos={cursorCoordinate.y}  setMenuDisplay={setMenuDisplay} displayMenu={menuDisplay}/>          
+        <CharMenu dbChars={dbChars} xpos={charCoordinate.x} ypos={charCoordinate.y}  setMenuDisplay={setMenuDisplay} displayMenu={menuDisplay}/>          
         </Screen>
     )
 }

@@ -21,13 +21,13 @@ const GlobalStyle = createGlobalStyle`
   `
 
 function App() {
-  const [charsArray, setCharsArray] = useState([]) ;
+  const [difficulty, setDifficulty] = useState('') ;
 
   return (
     <AppWrapper>
       <GlobalStyle/>
       <DifficultyScreen
-      setCharsArray={setCharsArray}/>
+      setDifficulty={setDifficulty}/>
       <Navbar/>
       <MainScreen/>
     </AppWrapper>

@@ -1,24 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Vash from '../assets/Vash.webp'
 import En from '../assets/En.png'
 import Dio from '../assets/Dio.webp'
-
-/* const Overlay = styled.div`
-    position: fixed; 
-  display: flex; 
-  justify-content :center;
-  width: 100%; 
-  height: 100%; 
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.8); 
-  z-index: 2; 
-  cursor: pointer; 
-` */
-
+import { db } from '../firebase';
 
 const Overlay = styled.div.attrs(props => ({
     style: {
@@ -102,18 +87,30 @@ const DiffcultyBtn = styled.button`
 `
 
 function DifficultyScreen(props) {
-    const { setDifficulty } = props;
-
+    const {setDbChars} = props;
+    const [difficulty, setDifficulty] = useState(null) ;
     const [visible, setvisible] = useState(true);
 
-    const handleClick = (e)=>{
-        setDifficulty(e.target.textContent)
-        setvisible(false)
+
+    const getData =  async ()  => {   
+        const ref = db.collection("Chars").doc(`${difficulty}`);
+        const data = await ref.get();
+        const finalData =  data.data();
+        setDbChars(finalData)
     }
+
+    const handleClick =  (e)=>{
+        setDifficulty(e.target.textContent);
+        setvisible(false);
+    }
+    useEffect(() => {
+            getData()
+    }, [difficulty])
+    
     return (
         <Overlay visible={visible}>
             <DifficultyMenu>
-                <DiffcultyBtn onClick={handleClick}> Easy </DiffcultyBtn>
+                <DiffcultyBtn onClick={handleClick}>Easy</DiffcultyBtn>
                 <CharList>
                 <Char>
                 <h4>En</h4> <CharImg src={`${En}`}/>

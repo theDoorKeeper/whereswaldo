@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
+import DifficultyScreen from "./Components/DifficultyScreen";
 import MainScreen from "./Components/MainScreen";
 import Navbar from "./Components/Navbar";
 
@@ -7,6 +8,8 @@ const GlobalStyle = createGlobalStyle`
     margin : 0;
     padding : 0;
     background-color : black ;
+    @import url('https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap');
+    font-family: 'Nova Mono', monospace;
   } `
 
   const AppWrapper = styled.div`
@@ -21,6 +24,7 @@ function App() {
     
     <AppWrapper>
       <GlobalStyle/>
+      <DifficultyScreen/>
       <Navbar/>
       <MainScreen/>
     </AppWrapper>

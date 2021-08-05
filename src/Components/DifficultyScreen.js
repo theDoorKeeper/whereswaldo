@@ -101,10 +101,13 @@ const DiffcultyBtn = styled.button`
 
 `
 
-function DifficultyScreen() {
+function DifficultyScreen(props) {
+    const { setDifficulty } = props;
+
     const [visible, setvisible] = useState(true);
 
-    const handleClick = ()=>{
+    const handleClick = (e)=>{
+        setDifficulty(e.target.textContent)
         setvisible(false)
     }
     return (

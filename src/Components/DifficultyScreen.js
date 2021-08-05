@@ -104,11 +104,13 @@ const DiffcultyBtn = styled.button`
 function DifficultyScreen() {
     const [visible, setvisible] = useState(true);
 
-
+    const handleClick = ()=>{
+        setvisible(false)
+    }
     return (
         <Overlay visible={visible}>
             <DifficultyMenu>
-                <DiffcultyBtn> Easy </DiffcultyBtn>
+                <DiffcultyBtn onClick={handleClick}> Easy </DiffcultyBtn>
                 <CharList>
                 <Char>
                 <h4>En</h4> <CharImg src={`${En}`}/>

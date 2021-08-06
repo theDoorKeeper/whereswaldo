@@ -15,8 +15,8 @@ import styled from 'styled-components'
     margin-bottom : 0;
     
     `
-function Navbar() {
-
+function Navbar(props) {
+    const { foundChars } = props;
     return (
             <Nav>
                 <li>

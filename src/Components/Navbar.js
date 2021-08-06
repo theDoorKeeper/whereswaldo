@@ -17,6 +17,11 @@ import styled from 'styled-components'
     `
 function Navbar(props) {
     const { foundChars } = props;
+
+    const getRemainingChars = ()=>{
+        return 3 - foundChars.length
+    }
+
     return (
             <Nav>
                 <li>
@@ -28,7 +33,7 @@ function Navbar(props) {
                 </li>
 
                 <li>
-                    Reamaining Chars
+                    Reamaining Chars {foundChars ? getRemainingChars() : 3}
                 </li>
             </Nav>
     )

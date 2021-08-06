@@ -54,6 +54,7 @@ const MenuItem = styled.li`
 function CharMenu(props) {
     const {displayMenu, xpos, ypos, setMenuDisplay, dbChars} = props;
     const [foundChars, setFoundChars] = useState([]) ;
+    const [displayedChars, setDisplayedChars] = useState([]);
 
     const checkForCoordinates = (xPos, yPos, maxX, maxY, minX, minY)=>{
         if ( (xPos >= minX && xPos <= maxX) && (yPos >= minY && yPos <= maxY) ){
@@ -85,6 +86,8 @@ function CharMenu(props) {
         setMenuDisplay(false);
         checkChar(e.target.textContent);
     }
+
+
 
     return (
         <Menu displayMenu={displayMenu} xpos={xpos} ypos={ypos}>

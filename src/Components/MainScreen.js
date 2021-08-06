@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import backGround from '../assets/backGround1.jpg'
 import CharMenu from './CharMenu';
@@ -19,7 +19,7 @@ import CharMenu from './CharMenu';
 
 
 function MainScreen(props) {
-    const {dbChars} = props;
+    const {dbChars, foundChars, setFoundChars} = props;
     const [charCoordinate, setCharCoordinate] = useState({});
     const [cursorCoordinate, setcursorCoordinate] = useState({});
     const [menuDisplay, setMenuDisplay] = useState(false);
@@ -55,7 +55,14 @@ function MainScreen(props) {
 
     return (
         <Screen onClick={handleClick}> 
-        <CharMenu dbChars={dbChars} xpos={charCoordinate.x} ypos={charCoordinate.y}  setMenuDisplay={setMenuDisplay} displayMenu={menuDisplay}/>          
+        <CharMenu
+         dbChars={dbChars}
+         xpos={charCoordinate.x}
+         ypos={charCoordinate.y}
+         setMenuDisplay={setMenuDisplay} 
+         displayMenu={menuDisplay}
+         foundChars={foundChars}
+         setFoundChars={setFoundChars}/>          
         </Screen>
     )
 }

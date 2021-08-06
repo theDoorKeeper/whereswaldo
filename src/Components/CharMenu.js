@@ -1,4 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+
 import React, { useEffect, useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 
@@ -63,17 +63,21 @@ function CharMenu(props) {
         else return false 
     }
 
+
+    
+    useEffect(() => {
     const checkChar = (name) => {
         const tempArray  = Object.entries(dbChars);     
-
         tempArray.forEach(instance=>{
             const char = instance[1];
             const charName = char.name;
 
             if(checkForCoordinates(xpos, ypos, char.maxX, char.maxY, char.minX, char.minY ) && (charName === name)){
-                if( !foundChars.includes(charName) ){
-               setFoundChars( thisArray => [...thisArray , charName] )
-                }
+               console.log(charName)
+            if( !foundChars.includes(charName) ){
+                setFoundChars( thisArray => [...thisArray , charName] )
+                
+                }   
 
             }
         })
@@ -81,14 +85,15 @@ function CharMenu(props) {
 
     }
 
+
     const handleClick = (e) =>{
         e.stopPropagation();
         setMenuDisplay(false);
         checkChar(e.target.textContent);
     }
 
-    
-    useEffect(() => {
+
+
         if(dbChars){
         setDisplayedChars(
             Object.keys(dbChars).map((char, i )=>{         
@@ -101,7 +106,7 @@ function CharMenu(props) {
         )
     }
 
-    }, [dbChars])
+    }, [dbChars,setMenuDisplay,xpos,ypos,foundChars,setFoundChars])
 
     return (
         <Menu displayMenu={displayMenu} xpos={xpos} ypos={ypos}>

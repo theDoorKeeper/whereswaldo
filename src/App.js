@@ -27,9 +27,9 @@ function App() {
   return (
     <AppWrapper>
       <GlobalStyle/>
-      <DifficultyScreen setDbChars={setDbChars} foundChars={foundChars} setFoundChars={setFoundChars} />
+      <DifficultyScreen setDbChars={setDbChars} />
       <Navbar foundChars={foundChars}/>  
-      <MainScreen dbChars={dbChars}  />
+      <MainScreen dbChars={dbChars}  foundChars={foundChars} setFoundChars={setFoundChars}/>
     </AppWrapper>
     
   );

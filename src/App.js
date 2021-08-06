@@ -21,11 +21,13 @@ const GlobalStyle = createGlobalStyle`
   `
 
 function App() {
-  const [dbChars, setDbChars] = useState({})
+  const [dbChars, setDbChars] = useState({}) ;
+  const [foundChars, setFoundChars] = useState([]) ;
+
   return (
     <AppWrapper>
       <GlobalStyle/>
-      <DifficultyScreen setDbChars={setDbChars} />
+      <DifficultyScreen setDbChars={setDbChars} foundChars={foundChars} setFoundChars={setFoundChars} />
       <Navbar/>  
       <MainScreen dbChars={dbChars}  />
     </AppWrapper>

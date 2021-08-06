@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 
 
@@ -52,8 +53,7 @@ const MenuItem = styled.li`
 `
 
 function CharMenu(props) {
-    const {displayMenu, xpos, ypos, setMenuDisplay, dbChars} = props;
-    const [foundChars, setFoundChars] = useState([]) ;
+    const {displayMenu, xpos, ypos, setMenuDisplay, dbChars, foundChars, setFoundChars} = props;
     const [displayedChars, setDisplayedChars] = useState([]);
 
     const checkForCoordinates = (xPos, yPos, maxX, maxY, minX, minY)=>{
@@ -87,21 +87,25 @@ function CharMenu(props) {
         checkChar(e.target.textContent);
     }
 
+    
+    useEffect(() => {
+        if(dbChars){
+        setDisplayedChars(
+            Object.keys(dbChars).map((char, i )=>{         
+                return (
+                    <MenuItem onClick={handleClick} key={i}>
+                    {char}
+                  </MenuItem>
+                )
+            })
+        )
+    }
 
+    }, [dbChars])
 
     return (
         <Menu displayMenu={displayMenu} xpos={xpos} ypos={ypos}>
-            <MenuItem onClick={handleClick}>
-              En
-            </MenuItem>
-
-            <MenuItem onClick={handleClick}>
-             Vash
-            </MenuItem >
-
-            <MenuItem onClick={handleClick}>
-            Dio
-            </MenuItem>                    
+            {displayedChars}                
         </Menu>
     )
 }

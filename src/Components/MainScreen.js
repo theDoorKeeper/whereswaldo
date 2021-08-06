@@ -21,7 +21,6 @@ import CharMenu from './CharMenu';
 function MainScreen(props) {
     const {dbChars, foundChars, setFoundChars} = props;
     const [charCoordinate, setCharCoordinate] = useState({});
-    const [cursorCoordinate, setcursorCoordinate] = useState({});
     const [menuDisplay, setMenuDisplay] = useState(false);
 
 
@@ -38,17 +37,10 @@ function MainScreen(props) {
         
     }
 
-    const getCursor = (e)=>{
 
-        const x = e.pageX;
-        const y = e.pageY ;
-
-        setcursorCoordinate({x,y})
-    }
 
     const handleClick = (e) =>{
         getCoordinates(e);
-        getCursor(e);
         setMenuDisplay(true);
     }
 

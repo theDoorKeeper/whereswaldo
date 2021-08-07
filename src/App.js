@@ -23,6 +23,9 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   const [dbChars, setDbChars] = useState({}) ;
   const [foundChars, setFoundChars] = useState([]) ;
+  const [isGameOver, setIsGameOver] = useState(false);
+
+  setIsGameOver(foundChars.length===3);
 
   return (
     <AppWrapper>

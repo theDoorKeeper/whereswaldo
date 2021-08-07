@@ -27,7 +27,7 @@ const Overlay = styled.div.attrs(props => ({
 const DifficultyMenu = styled.div`
     height : 700px;
     width  : 800px;
-    background : #393737; ;
+    background : #292d3e ;
     border-radius : 30px;
     margin-top : 3rem;
     cursor  : auto;
@@ -74,20 +74,21 @@ const DiffcultyBtn = styled.button`
     width : 20%;
     border-radius : 30px;
     border : none ;
-    background: #7d7d7d;
-    color : green ;
+    background: #00ff41;
+    color : #191818  ;
     font-size : 2rem;
     font-weight : bold;
     text-align : center ;
     cursor : pointer ;
     &:hover{
-     scale : 1.1;
+     background : #008f11;
+     scale : 1.05;
     }
 
 `
 
 function DifficultyScreen(props) {
-    const {setDbChars} = props;
+    const {setDbChars, setisDoneLoading} = props;
     const [difficulty, setDifficulty] = useState(null) ;
     const [visible, setvisible] = useState(true);
 
@@ -96,7 +97,8 @@ function DifficultyScreen(props) {
         const ref = db.collection("Chars").doc(`${difficulty}`);
         const data = await ref.get();
         const finalData =  data.data();
-        setDbChars(finalData)
+        setDbChars(finalData);
+        setisDoneLoading(true);
     }
 
     const handleClick =  (e)=>{
@@ -104,7 +106,9 @@ function DifficultyScreen(props) {
         setvisible(false);
     }
     useEffect(() => {
+        if(difficulty){
             getData()
+        }
     }, [difficulty])
     
     return (

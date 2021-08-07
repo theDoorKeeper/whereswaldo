@@ -25,13 +25,25 @@ function App() {
   const [dbChars, setDbChars] = useState({}) ;
   const [foundChars, setFoundChars] = useState([]) ;
   const [isDoneLoading, setisDoneLoading] = useState(false);
+  const [isGameOver, setIsGameOver] = useState(false);
+
+useEffect(() => {
+  if(isDoneLoading){
+  setIsGameOver(foundChars.length === Object.entries(dbChars).length )
+}
+  console.log(isGameOver,Object.entries(dbChars).length,foundChars.length)
+}, [setIsGameOver,foundChars,isGameOver,dbChars,isDoneLoading])
+
+
+
+
   return (
     <AppWrapper>
       <GlobalStyle/>
       <DifficultyScreen setDbChars={setDbChars} setisDoneLoading={setisDoneLoading}/>
       <Navbar foundChars={foundChars}/>  
       <MainScreen dbChars={dbChars}  foundChars={foundChars} setFoundChars={setFoundChars}/>
-      <EndingScreen/>
+      <EndingScreen isGameOver={isGameOver}/>
     </AppWrapper>
     
   );

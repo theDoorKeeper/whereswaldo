@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import DifficultyScreen from "./Components/DifficultyScreen";
+import EndingScreen from "./Components/EndingScreen";
 import MainScreen from "./Components/MainScreen";
 import Navbar from "./Components/Navbar";
 
@@ -23,16 +24,14 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   const [dbChars, setDbChars] = useState({}) ;
   const [foundChars, setFoundChars] = useState([]) ;
-  const [isGameOver, setIsGameOver] = useState(false);
-
-  setIsGameOver(foundChars.length===3);
-
+  const [isDoneLoading, setisDoneLoading] = useState(false);
   return (
     <AppWrapper>
       <GlobalStyle/>
-      <DifficultyScreen setDbChars={setDbChars} />
+      <DifficultyScreen setDbChars={setDbChars} setisDoneLoading={setisDoneLoading}/>
       <Navbar foundChars={foundChars}/>  
       <MainScreen dbChars={dbChars}  foundChars={foundChars} setFoundChars={setFoundChars}/>
+      <EndingScreen/>
     </AppWrapper>
     
   );

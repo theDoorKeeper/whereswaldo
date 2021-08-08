@@ -24,7 +24,7 @@ function Popup(props) {
     const { hasFoundChar,hasClicked } = props;
     return (
         <Pop hasClicked={hasClicked} hasFoundChar={hasFoundChar}>
-            {hasFoundChar ? 'you have found a char !' : 'Wrong , try again !'}
+            {hasFoundChar ?` you have found ${hasFoundChar}!`   : 'Wrong , try again !'}
         </Pop>
     )
 }

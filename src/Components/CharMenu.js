@@ -75,7 +75,7 @@ function CharMenu(props) {
                setHasFoundChar(false)
             if( !foundChars.includes(charName) ){
                 setFoundChars( thisArray => [...thisArray , charName] );
-                setHasFoundChar(true);
+                setHasFoundChar(charName);
                 setTimeout( ()=>{
                     setHasFoundChar(false);
                 },1000)

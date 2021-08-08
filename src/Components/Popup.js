@@ -1,6 +1,19 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
+
+const rotateY = keyframes`
+     0% {
+        transform: rotateY(90deg)
+    }
+    80% {
+        transform: rotateY(-10deg)
+    }
+    100% {
+        transform: rotateY(0)
+    }
+
+`
 const Pop = styled.div.attrs(props => ({
     style: {
      display : props.hasClicked ? 'flex' : 'none', 
@@ -17,6 +30,8 @@ const Pop = styled.div.attrs(props => ({
     height: 2rem ; 
     border-radius : 35px;
     z-index: 1; 
+    animation-name: ${rotateY};
+  animation-duration: 0.8s;
     cursor: pointer; 
   ` 
 

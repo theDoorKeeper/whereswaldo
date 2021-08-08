@@ -15,15 +15,16 @@ const Pop = styled.div.attrs(props => ({
     justify-content :center;
     width: 500px; 
     height: 2rem ; 
+    border-radius : 35px;
     
     z-index: 1; 
     cursor: pointer; 
   ` 
 
 function Popup(props) {
-    const { hasFoundChar } = props;
+    const { hasFoundChar,hasClicked } = props;
     return (
-        <Pop>
+        <Pop hasClicked={hasClicked} hasFoundChar={hasFoundChar}>
             {hasFoundChar ? 'you have found a char !' : 'Wrong , try again !'}
         </Pop>
     )

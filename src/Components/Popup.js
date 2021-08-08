@@ -16,7 +16,6 @@ const Pop = styled.div.attrs(props => ({
     width: 500px; 
     height: 2rem ; 
     border-radius : 35px;
-    
     z-index: 1; 
     cursor: pointer; 
   ` 

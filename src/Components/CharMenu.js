@@ -34,13 +34,13 @@ const Menu = styled.ul.attrs(props => ({
   border : 1px tomato solid;
   animation-name: ${rotateY};
   animation-duration: 1s;
-
+  background-color : #292b2c ;
+  border-radius : 15px
   `
 
 const MenuItem = styled.li`
-    width : 142px;
-    border-top : 1px tomato solid;
-    background-color : #292b2c ;
+    border-radius : 15px;
+    width : 142px; 
     height : 66px;
     display : flex ; 
     align-items : center ;
@@ -53,9 +53,8 @@ const MenuItem = styled.li`
 `
 
 function CharMenu(props) {
-    const {displayMenu, xpos, ypos, setMenuDisplay, dbChars, foundChars, setFoundChars} = props;
+    const {displayMenu, xpos, ypos, setMenuDisplay, dbChars, foundChars, setFoundChars, setHasClicked, setHasFoundChar} = props;
     const [displayedChars, setDisplayedChars] = useState([]);
-
     const checkForCoordinates = (xPos, yPos, maxX, maxY, minX, minY)=>{
         if ( (xPos >= minX && xPos <= maxX) && (yPos >= minY && yPos <= maxY) ){
             return true 
@@ -73,9 +72,13 @@ function CharMenu(props) {
             const charName = char.name;
 
             if(checkForCoordinates(xpos, ypos, char.maxX, char.maxY, char.minX, char.minY ) && (charName === name)){
-               console.log(charName)
+               setHasFoundChar(false)
             if( !foundChars.includes(charName) ){
-                setFoundChars( thisArray => [...thisArray , charName] )
+                setFoundChars( thisArray => [...thisArray , charName] );
+                setHasFoundChar(true);
+                setTimeout( ()=>{
+                    setHasFoundChar(false);
+                },1000)
                 
                 }   
 
@@ -89,7 +92,11 @@ function CharMenu(props) {
     const handleClick = (e) =>{
         e.stopPropagation();
         setMenuDisplay(false);
+        setHasClicked(true);
         checkChar(e.target.textContent);
+        setTimeout(()=>{
+            setHasClicked(false)
+        },800)
     }
 
 
@@ -106,7 +113,7 @@ function CharMenu(props) {
         )
     }
 
-    }, [dbChars,setMenuDisplay,xpos,ypos,foundChars,setFoundChars])
+    }, [dbChars,setMenuDisplay,xpos,ypos,foundChars,setFoundChars,setHasFoundChar,setHasClicked])
 
     return (
         <Menu displayMenu={displayMenu} xpos={xpos} ypos={ypos}>

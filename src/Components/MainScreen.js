@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components';
 import backGround from '../assets/backGround1.jpg'
 import CharMenu from './CharMenu';
+import Popup from './Popup';
 
 
 
@@ -47,6 +48,7 @@ function MainScreen(props) {
 
     return (
         <Screen onClick={handleClick}> 
+        <Popup/>
         <CharMenu
          dbChars={dbChars}
          xpos={charCoordinate.x}

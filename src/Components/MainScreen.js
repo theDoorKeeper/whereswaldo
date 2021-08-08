@@ -48,7 +48,7 @@ function MainScreen(props) {
 
     return (
         <Screen onClick={handleClick}> 
-        <Popup/>
+        <Popup hasFoundChar={hasFoundChar} hasClicked={hasClicked}/>
         <CharMenu
          dbChars={dbChars}
          xpos={charCoordinate.x}
@@ -56,7 +56,11 @@ function MainScreen(props) {
          setMenuDisplay={setMenuDisplay} 
          displayMenu={menuDisplay}
          foundChars={foundChars}
-         setFoundChars={setFoundChars}/>          
+         setFoundChars={setFoundChars}
+         setHasClicked={setHasClicked}
+         setHasFoundChar={setHasFoundChar}  
+         />   
+              
         </Screen>
     )
 }

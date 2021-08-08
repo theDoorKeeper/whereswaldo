@@ -23,8 +23,8 @@ function MainScreen(props) {
     const {dbChars, foundChars, setFoundChars} = props;
     const [charCoordinate, setCharCoordinate] = useState({});
     const [menuDisplay, setMenuDisplay] = useState(false);
-
-
+    const [hasFoundChar, setHasFoundChar] = useState(false);
+    const [hasClicked, setHasClicked ] = useState (false);
     const getCoordinates = (e)=>{
 
     const target = e.target;

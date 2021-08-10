@@ -12,4 +12,5 @@ const app = firebase.initializeApp({
 })
 
 export const db = firebase.firestore();
+export const timeStamp = firebase.firestore.Timestamp.now().toDate();
 export default app;

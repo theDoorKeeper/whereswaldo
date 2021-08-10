@@ -4,6 +4,7 @@ import DifficultyScreen from "./Components/DifficultyScreen";
 import EndingScreen from "./Components/EndingScreen";
 import MainScreen from "./Components/MainScreen";
 import Navbar from "./Components/Navbar";
+import { getTime } from "./helper-functions/getTime";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -32,9 +33,10 @@ function App() {
 
 useEffect(() => {
   if(isDoneLoading){
-  setIsGameOver(foundChars.length === Object.entries(dbChars).length )
+  setIsGameOver(foundChars.length === Object.entries(dbChars).length );
+  setStartingTime( getTime() );
 }
-}, [setIsGameOver,foundChars,dbChars,isDoneLoading])
+}, [foundChars,dbChars,isDoneLoading])
 
 
 

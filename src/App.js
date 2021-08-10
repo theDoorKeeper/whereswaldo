@@ -26,13 +26,15 @@ function App() {
   const [foundChars, setFoundChars] = useState([]) ;
   const [isDoneLoading, setisDoneLoading] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
+  const [startingTime, setStartingTime] = useState(null);
+  const [finishingTime, setFinishingTime] = useState(null);
+
 
 useEffect(() => {
   if(isDoneLoading){
   setIsGameOver(foundChars.length === Object.entries(dbChars).length )
 }
-  console.log(isGameOver,Object.entries(dbChars).length,foundChars.length)
-}, [setIsGameOver,foundChars,isGameOver,dbChars,isDoneLoading])
+}, [setIsGameOver,foundChars,dbChars,isDoneLoading])
 
 
 

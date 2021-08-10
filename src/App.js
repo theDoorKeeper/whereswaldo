@@ -43,7 +43,12 @@ useEffect(() => {
     }
 }, [isDoneLoading])
 
-
+useEffect(() => {
+  if(isGameOver){
+    setFinishingTime( getTime() )
+  }
+ 
+}, [finishingTime,startingTime,isGameOver])
 
   return (
     <AppWrapper>

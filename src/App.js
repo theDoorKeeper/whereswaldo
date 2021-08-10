@@ -33,11 +33,15 @@ function App() {
 
 useEffect(() => {
   if(isDoneLoading){
-  setIsGameOver(foundChars.length === Object.entries(dbChars).length );
-  setStartingTime( getTime() );
+  setIsGameOver(foundChars.length === Object.entries(dbChars).length );   
 }
 }, [foundChars,dbChars,isDoneLoading])
 
+useEffect(() => {
+    if(isDoneLoading){
+      setStartingTime( getTime() );
+    }
+}, [isDoneLoading])
 
 
 

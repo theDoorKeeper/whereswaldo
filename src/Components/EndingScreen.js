@@ -115,7 +115,7 @@ function EndingScreen(props) {
     const [finalTime, setfinalTime] = useState(null);
     const [scoreList, setScoreList] = useState([]);
     const [timeLeaderBoard, setTimeLeaderBoard] = useState([]);
-
+    const playerName = useRef(null);
 
  
 
@@ -131,6 +131,10 @@ function EndingScreen(props) {
     }, [startingTime,finishingTime])
     return (
         <Overlay isGameOver={isGameOver}>
+             Your score was : {finalTime}
+            <Input ref={playerName} placeholder="Enter you name ..."/>
+            <Button onClick={}> Submit Score </Button>
+            <ScoreListContainer>{timeLeaderBoard}</ScoreListContainer>
         </Overlay>
     )
 }

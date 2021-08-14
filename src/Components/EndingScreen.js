@@ -45,6 +45,45 @@ const Score = styled.li`
     font-size : 2rem;
     color : whitesmoke;
 `;
+
+const Input = styled.input`
+  font-size: 18px;
+  padding: 10px;
+  margin: 10px;
+  background: whitesmoke;
+  border: none;
+  border-radius: 15px;
+  ::placeholder {
+    color: black;
+  }
+  :focus{
+    outline: none;
+    border: none;
+  }
+`;
+
+const Button = styled.button`
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 10px;
+  margin: 10px 0px;
+  cursor: pointer;
+  border : none;
+  :hover{
+      background : #1e1e1e;
+  }
+  :disabled{
+    color: grey;
+    opacity: 0.7;
+    cursor: default;
+
+    :hover{
+     background : black;
+    }
+  }
+`;
     
 
 

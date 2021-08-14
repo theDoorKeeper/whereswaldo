@@ -145,7 +145,16 @@ function EndingScreen(props) {
             unsub()
         }
     
-    },[])  
+    },[]);
+    
+    useEffect(() => {
+        setTimeLeaderBoard(
+            scoreList.map((score,i)=>{
+                return <Score key={i} > {i+1} {score.name} : {score.time} </Score>
+            })
+        )
+    
+    }, [scoreList,setTimeLeaderBoard])  
 
     useEffect(() => {
         if(startingTime && finishingTime){

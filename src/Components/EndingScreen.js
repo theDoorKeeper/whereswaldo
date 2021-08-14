@@ -113,6 +113,12 @@ const Button = styled.button`
 function EndingScreen(props) {
     const {isGameOver, startingTime, finishingTime}=props;
     const [finalTime, setfinalTime] = useState(null);
+    const [scoreList, setScoreList] = useState([]);
+    const [timeLeaderBoard, setTimeLeaderBoard] = useState([]);
+
+
+ 
+
 
     useEffect(() => {
         if(startingTime && finishingTime){

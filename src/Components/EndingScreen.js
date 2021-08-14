@@ -1,7 +1,28 @@
 
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import React, { useEffect, useState } from 'react';
 
+
+const growDown = keyframes`
+0% {
+
+  transform: scaleY(0)
+
+}
+
+80% {
+
+  transform: scaleY(1.1)
+
+}
+
+100% {
+
+  transform: scaleY(1)
+
+}
+
+`;
 
 const Overlay = styled.div.attrs(props => ({
     style: {
@@ -37,6 +58,8 @@ const ScoreListContainer = styled.ul`
     background-color : #191818;
     justify-content : space-between;
     padding : 1rem;
+    animation-name: ${growDown};
+    animation-duration: 1s;
 `;
 
 const Score = styled.li`

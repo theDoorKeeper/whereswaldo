@@ -39,6 +39,12 @@ const ScoreListContainer = styled.ul`
     padding : 1rem;
 `;
 
+const Score = styled.li`
+    height : 1rem ;
+    margin : 0.5rem;
+    font-size : 2rem;
+    color : whitesmoke;
+`;
     
 
 

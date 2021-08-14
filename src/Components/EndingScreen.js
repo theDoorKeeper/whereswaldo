@@ -1,3 +1,4 @@
+
 import styled from "styled-components";
 import React, { useEffect, useState } from 'react';
 
@@ -19,7 +20,24 @@ const Overlay = styled.div.attrs(props => ({
     z-index: 2; 
     cursor: pointer; 
     color  : white ;
-  `
+    display : flex ;
+    flex-direction : column;
+    align-items : center;
+  `;
+
+
+const ScoreListContainer = styled.ul`
+    height : fit-content;
+    width : 60%;
+    list-style : none; 
+    display : flex ;
+    flex-direction: column ; 
+    align-items : center ;
+    border-radius : 30px; 
+    background-color : #191818;
+    justify-content : space-between;
+    padding : 1rem;
+`;
 
     
 
@@ -39,7 +57,6 @@ function EndingScreen(props) {
     }, [startingTime,finishingTime])
     return (
         <Overlay isGameOver={isGameOver}>
-            {finalTime}
         </Overlay>
     )
 }

@@ -1,6 +1,7 @@
 
 import styled, { keyframes } from "styled-components";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { db } from "../firebase";
 
 
 const growDown = keyframes`
@@ -117,7 +118,15 @@ function EndingScreen(props) {
     const [timeLeaderBoard, setTimeLeaderBoard] = useState([]);
     const playerName = useRef(null);
 
- 
+    const addData = (e) => {   
+        let cityRef = db.collection('Highscores')
+        cityRef.add({
+            name : playerName.current.value,
+            time :  finalTime
+        })
+        e.target.disabled = true;
+        playerName.value = null
+    }
 
 
     useEffect(() => {
@@ -133,7 +142,7 @@ function EndingScreen(props) {
         <Overlay isGameOver={isGameOver}>
              Your score was : {finalTime}
             <Input ref={playerName} placeholder="Enter you name ..."/>
-            <Button onClick={}> Submit Score </Button>
+            <Button onClick={addData}> Submit Score </Button>
             <ScoreListContainer>{timeLeaderBoard}</ScoreListContainer>
         </Overlay>
     )

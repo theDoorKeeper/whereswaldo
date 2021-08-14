@@ -128,6 +128,24 @@ function EndingScreen(props) {
         playerName.value = null
     }
 
+    useEffect(() => {
+        let unsub = db.collection("Highscores")
+        .orderBy("time")
+        .limit(10)
+        .onSnapshot((querySnapshot) => {
+            const tempArray = [];
+            querySnapshot.forEach((doc) => {
+                tempArray.push(doc.data())
+                console.log(doc.data())
+            });
+            setScoreList(tempArray);
+            
+        });
+        return () =>{
+            unsub()
+        }
+    
+    },[])  
 
     useEffect(() => {
         if(startingTime && finishingTime){

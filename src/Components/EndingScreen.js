@@ -125,7 +125,7 @@ function EndingScreen(props) {
             time :  finalTime
         })
         e.target.disabled = true;
-        playerName.value = null
+        playerName.current.value = null
     }
 
     useEffect(() => {

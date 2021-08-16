@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import Vash from '../assets/Vash.webp'
-import En from '../assets/En.png'
-import Dio from '../assets/Dio.webp'
+import Vash from '../../assets/Vash.webp'
+import En from '../../assets/En.png'
+import Dio from '../../assets/Dio.webp'
+
+
 const DifficultyMenu = styled.div`
     height : 700px;
     width  : 800px;
@@ -14,6 +16,8 @@ const DifficultyMenu = styled.div`
     flex-direction : column;
     justify-content : center;
     align-items : center;
+    margin-left : auto;
+    margin-right :auto;
 `
 
 const CharList = styled.ul`
@@ -25,7 +29,7 @@ const CharList = styled.ul`
 `
 const Char = styled.li`
     width : 100%;
-    display : flex ;
+    display : -webkit-box ;
     justify-content :space-between;
     font-size : 3rem;
      cursor : pointer ;

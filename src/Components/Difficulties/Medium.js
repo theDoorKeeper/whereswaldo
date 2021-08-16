@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import Spike from '../assets/Spike.png'
-import Tom from '../assets/Tom.png'
-import Edward from '../assets/Elric.png'
+import Spike from '../../assets/Spike.png'
+import Tom from '../../assets/Tom.png'
+import Edward from '../../assets/Edward.webp'
 
 const DifficultyMenu = styled.div`
     height : 700px;
@@ -15,6 +15,8 @@ const DifficultyMenu = styled.div`
     flex-direction : column;
     justify-content : center;
     align-items : center;
+    margin-left : auto;
+    margin-right :auto;
 `
 
 const CharList = styled.ul`
@@ -25,8 +27,8 @@ const CharList = styled.ul`
 
 `
 const Char = styled.li`
-    width : 100%;
-    display : flex ;
+     width : 100%;
+     display : -webkit-box ;
     justify-content :space-between;
     font-size : 3rem;
      cursor : pointer ;
@@ -41,6 +43,7 @@ const Char = styled.li`
 
 const CharImg = styled.img`
     height : 12rem;
+    width : auto;
     &:hover{
     scale : 1.2;
     }
@@ -52,7 +55,7 @@ const DiffcultyBtn = styled.button`
     width : 20%;
     border-radius : 30px;
     border : none ;
-    background: #00ff41;
+    background: orange;
     color : #191818  ;
     font-size : 2rem;
     font-weight : bold;

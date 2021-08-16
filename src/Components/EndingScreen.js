@@ -135,8 +135,9 @@ function EndingScreen(props) {
         .onSnapshot((querySnapshot) => {
             const tempArray = [];
             querySnapshot.forEach((doc) => {
+              
                 tempArray.push(doc.data())
-                console.log(doc.data())
+                
             });
             setScoreList(tempArray);
             

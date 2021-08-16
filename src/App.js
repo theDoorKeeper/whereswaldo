@@ -48,7 +48,7 @@ useEffect(() => {
     setFinishingTime( getTime() )
   }
  
-}, [finishingTime,startingTime,isGameOver])
+}, [isGameOver])
 
   return (
     <AppWrapper>
@@ -56,7 +56,7 @@ useEffect(() => {
       <DifficultyScreen setDbChars={setDbChars} setisDoneLoading={setisDoneLoading}/>
       <Navbar foundChars={foundChars}/>  
       <MainScreen dbChars={dbChars}  foundChars={foundChars} setFoundChars={setFoundChars}/>
-      <EndingScreen isGameOver={isGameOver}/>
+      <EndingScreen isGameOver={isGameOver} startingTime={startingTime} finishingTime={finishingTime}/>
     </AppWrapper>
     
   );

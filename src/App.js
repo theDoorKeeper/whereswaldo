@@ -54,7 +54,7 @@ useEffect(() => {
     <AppWrapper>
       <GlobalStyle/>
       <DifficultyScreen setDbChars={setDbChars} setisDoneLoading={setisDoneLoading}/>
-      <Navbar foundChars={foundChars}/>  
+      <Navbar foundChars={foundChars} isDoneLoading={isDoneLoading}/>  
       <MainScreen dbChars={dbChars}  foundChars={foundChars} setFoundChars={setFoundChars}/>
       <EndingScreen isGameOver={isGameOver} startingTime={startingTime} finishingTime={finishingTime}/>
     </AppWrapper>

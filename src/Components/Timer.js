@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import secondsToHms from '../helper-functions/convertHMS';
 
-function Timer() {
+function Timer(props) {
+    const {isDoneLoading} = props ;
     const [time, setTime] = useState('00:00:00');
     const [sec, setSec] = useState(0);
 

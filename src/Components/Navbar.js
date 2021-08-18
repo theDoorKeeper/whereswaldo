@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import findMe from '../assets/logo.png'
+import Timer from './Timer'
 
     const Nav = styled.ul`
     width : 100%;
@@ -42,7 +43,7 @@ function Navbar(props) {
                 </li>
 
                 <li>
-                    Timer
+                    <Timer/>
                 </li>
 
                 <li>

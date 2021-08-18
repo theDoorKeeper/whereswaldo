@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import findMe from '../assets/logo.png'
 
     const Nav = styled.ul`
     width : 100%;
@@ -18,6 +19,15 @@ import styled from 'styled-components'
     z-index : 1;
     
     `
+
+
+    const Logo = styled.img`
+        height : 80px;
+        width : auto;
+        cursor : pointer;
+
+    `
+
 function Navbar(props) {
     const { foundChars } = props;
 
@@ -28,7 +38,7 @@ function Navbar(props) {
     return (
             <Nav>
                 <li>
-                    LOGO
+                    <Logo src={findMe}/>
                 </li>
 
                 <li>

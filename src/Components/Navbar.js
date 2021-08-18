@@ -30,7 +30,7 @@ import Timer from './Timer'
     `
 
 function Navbar(props) {
-    const { foundChars } = props;
+    const { foundChars,isDoneLoading } = props;
 
     const getRemainingChars = ()=>{
         return 3 - foundChars.length
@@ -43,7 +43,7 @@ function Navbar(props) {
                 </li>
 
                 <li>
-                    <Timer/>
+                    <Timer isDoneLoading={isDoneLoading}/>
                 </li>
 
                 <li>

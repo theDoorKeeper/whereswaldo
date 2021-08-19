@@ -4,10 +4,10 @@ import secondsToHms from '../helper-functions/convertHMS';
 function Timer(props) {
     const {isDoneLoading, isGameOver} = props ;
     const [time, setTime] = useState('00:00:00');
-    const [sec, setSec] = useState(0);
+    const [sec, setSec] = useState(1);
 
     useEffect(() => {
-           if (isDoneLoading){
+           if (isDoneLoading && !isGameOver){
         setTimeout(()=>{
            setSec(previousState => {
                return previousState+1
@@ -16,7 +16,7 @@ function Timer(props) {
         },1000)
               }
 
-    }, [sec,isDoneLoading])
+    }, [sec,isDoneLoading,isGameOver])
     return (
         <div>
             {time}

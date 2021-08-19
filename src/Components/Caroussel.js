@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import React from 'react '
+import Easy from './Difficulties/Easy';
+import Medium from './Difficulties/Medium';
 
 function Caroussel() {
      const [componentNumber, setComponentNumber] = useState(1) 
@@ -25,6 +27,8 @@ function Caroussel() {
     return (
         <div>
             <button onClick={goLeft}> - </button>
+            <Easy number={componentNumber}/>
+            <Medium number={componentNumber}/>
             <button onClick={goRight}> + </button>
         </div>
     )

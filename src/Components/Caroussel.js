@@ -24,7 +24,8 @@ function Caroussel() {
 
     return (
         <div>
-            
+            <button onClick={goLeft}> - </button>
+            <button onClick={goRight}> + </button>
         </div>
     )
 }

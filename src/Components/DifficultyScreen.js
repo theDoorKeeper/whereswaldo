@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { db } from '../firebase';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; 
-import { Carousel } from 'react-responsive-carousel';
 import Medium from './Difficulties/Medium';
 import Easy from './Difficulties/Easy'
 
@@ -50,10 +49,8 @@ function DifficultyScreen(props) {
     
     return (
         <Overlay visible={visible} >
-            <Carousel showArrows={true}   >
             <Easy handleClick={handleClick}/>
             <Medium handleClick={handleClick}/>
-            </Carousel>
         </Overlay>
     )
 }

@@ -1,9 +1,22 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import Spike from '../../assets/Spike.png'
 import Tom from '../../assets/Tom.png'
 import Edward from '../../assets/Edward.webp'
 
+
+const rotateY = keyframes`
+     0% {
+        transform: rotateY(90deg)
+    }
+    80% {
+        transform: rotateY(-10deg)
+    }
+    100% {
+        transform: rotateY(0)
+    }
+
+`
 const DifficultyMenu = styled.div.attrs(props => ({
     style: {
         display : (props.number === 2) ? 'flex' : 'none',
@@ -20,6 +33,8 @@ const DifficultyMenu = styled.div.attrs(props => ({
     align-items : center;
     margin-left : auto;
     margin-right :auto;
+    animation-name: ${rotateY};
+    animation-duration: 0.5s;
 `
 
 const CharList = styled.ul`
@@ -31,7 +46,7 @@ const CharList = styled.ul`
 `
 const Char = styled.li`
      width : 100%;
-     display : -webkit-box ;
+     display : flex ;
     justify-content :space-between;
     font-size : 3rem;
      cursor : pointer ;
@@ -71,10 +86,10 @@ const DiffcultyBtn = styled.button`
 `
 
 function Medium(props) {
-    const {handleClick} = props;
+    const {handleClick, number} = props;
     
     return (
-        <DifficultyMenu>    
+        <DifficultyMenu number={number}>    
         <DiffcultyBtn onClick={handleClick}>Medium</DiffcultyBtn>
         <CharList>
         <Char>

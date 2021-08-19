@@ -1,9 +1,23 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import Vash from '../../assets/Vash.webp'
 import En from '../../assets/En.png'
 import Dio from '../../assets/Dio.webp'
 
+
+
+const rotateY = keyframes`
+     0% {
+        transform: rotateY(90deg)
+    }
+    80% {
+        transform: rotateY(-10deg)
+    }
+    100% {
+        transform: rotateY(0)
+    }
+
+`
 
 const DifficultyMenu = styled.div.attrs(props => ({
     style: {
@@ -21,6 +35,8 @@ const DifficultyMenu = styled.div.attrs(props => ({
     align-items : center;
     margin-left : auto;
     margin-right :auto;
+    animation-name: ${rotateY};
+    animation-duration: 0.5s;
 `
 
 const CharList = styled.ul`
@@ -31,8 +47,8 @@ const CharList = styled.ul`
 
 `
 const Char = styled.li`
-    width : 30%;
-    display : flex ;
+     width : 100%;
+     display : flex ;
     justify-content :space-between;
     font-size : 3rem;
      cursor : pointer ;
@@ -41,7 +57,6 @@ const Char = styled.li`
     &:hover{
         color : #9b1427;
     }
-
 
 `
 
@@ -71,10 +86,10 @@ const DiffcultyBtn = styled.button`
 `
 
 function Easy(props) {
-    const {handleClick} = props;
+    const {handleClick, number} = props;
     
     return (
-        <DifficultyMenu>    
+        <DifficultyMenu number={number}>    
         <DiffcultyBtn onClick={handleClick}>Easy</DiffcultyBtn>
         <CharList>
         <Char>

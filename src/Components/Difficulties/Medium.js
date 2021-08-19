@@ -4,14 +4,17 @@ import Spike from '../../assets/Spike.png'
 import Tom from '../../assets/Tom.png'
 import Edward from '../../assets/Edward.webp'
 
-const DifficultyMenu = styled.div`
+const DifficultyMenu = styled.div.attrs(props => ({
+    style: {
+        display : (props.number === 2) ? 'flex' : 'none',
+         },
+     }))`
     height : 700px;
     width  : 800px;
     background : #292d3e ;
     border-radius : 30px;
     margin-top : 3rem;
     cursor  : auto;
-    display : flex ;
     flex-direction : column;
     justify-content : center;
     align-items : center;

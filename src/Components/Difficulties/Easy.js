@@ -5,14 +5,17 @@ import En from '../../assets/En.png'
 import Dio from '../../assets/Dio.webp'
 
 
-const DifficultyMenu = styled.div`
+const DifficultyMenu = styled.div.attrs(props => ({
+    style: {
+        display : (props.number === 1) ? 'flex' : 'none',
+         },
+     }))`
     height : 700px;
     width  : 800px;
     background : #292d3e ;
     border-radius : 30px;
     margin-top : 3rem;
     cursor  : auto;
-    display : flex ;
     flex-direction : column;
     justify-content : center;
     align-items : center;
@@ -28,8 +31,8 @@ const CharList = styled.ul`
 
 `
 const Char = styled.li`
-    width : 100%;
-    display : -webkit-box ;
+    width : 30%;
+    display : flex ;
     justify-content :space-between;
     font-size : 3rem;
      cursor : pointer ;

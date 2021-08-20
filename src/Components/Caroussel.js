@@ -38,7 +38,8 @@ const ArrowButton = styled.button`
 
 `
 
-function Caroussel() {
+function Caroussel(props) {
+    const {handleClick} = props;
      const [componentNumber, setComponentNumber] = useState(1) 
 
      const goRight = () =>{
@@ -62,8 +63,8 @@ function Caroussel() {
     return (
         <Carousel>
             <ArrowButton onClick={goLeft}> &larr; </ArrowButton>
-            <Easy number={componentNumber}/>
-            <Medium number={componentNumber}/>
+            <Easy number={componentNumber} handleClick={handleClick}/>
+            <Medium number={componentNumber}  handleClick={handleClick}/>
             <ArrowButton onClick={goRight}> &rarr; </ArrowButton>
         </Carousel>
     )

@@ -10,10 +10,33 @@ const Carousel = styled.div`
     height : 1000px;
     width : 1200px;
     border: black 1px solid;
-    margin : auto
+    margin-left : auto;
+    margin-right: auto ;
+    justify-content : center;
 
 `
+const ArrowButton = styled.button`
+    height : 120px;
+    width : 120px;
+    text-align:center;
+    align-self : center;
+    background : none ;
+    font-size : 5rem;
+    border-radius : 50% ;
+    border : 1px  #191818 solid ;
+    color :  black ;
+    background-color : #292d3e;
+    font-weight: bolder;
+    &:hover{
+        color: black;
+        background :  #191818; 
+        cursor : pointer;
+    }
+    
+    
 
+
+`
 
 function Caroussel() {
      const [componentNumber, setComponentNumber] = useState(1) 
@@ -38,10 +61,10 @@ function Caroussel() {
 
     return (
         <Carousel>
-            <button onClick={goLeft}> - </button>
+            <ArrowButton onClick={goLeft}> &larr; </ArrowButton>
             <Easy number={componentNumber}/>
             <Medium number={componentNumber}/>
-            <button onClick={goRight}> + </button>
+            <ArrowButton onClick={goRight}> &rarr; </ArrowButton>
         </Carousel>
     )
 }
